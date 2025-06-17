@@ -1,0 +1,39 @@
+# the name of your lambda function
+# this value will be used to lookup up an existing lambda function
+name: my-lambda
+architecture: arm64
+rolename: lambda-role
+runtime: provided.al2023
+handler: bootstrap
+filename: bootstrap.zip
+# optional
+#   include the endpoint block IFF your function acts as a handler
+#   for a REST API endpoint
+endpoint:
+  # the version value allows for backward compatibility
+  # non-backward compatible changes should be placed in a new version
+  # this value will be used in the api path:
+  # ie. https://api.insightengine.com/v1
+  - version: 1
+    # the name of the REST API resource your function is responsible for
+    # this name will be included in the api as a path value
+    # ie. https://api.insightengine.com/v1/poc
+    resource: mylambda
+    # a list of REST methods (GET, POST, PUT, DELETE...) supported by your function
+    methods:
+      - name: GET
+        # declaration of the request object properties
+        req:
+        # declaration of the response object properties
+        res:
+  # This config allows for declaring multiple versions of your endpoint.
+  # New versions are typically required when adding new features that
+  #   are not backwards compatible. Changes to the shape of existing
+  #   json objects, parameter names, header names etc.
+  # The addition of new parameters does not typically require a new
+  #   version number unless the parameter is required or is deemed
+  #   necessary to avoid confusion for API consumers.
+  #- version: 2
+  #- version: 3
+
+  
