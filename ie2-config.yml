@@ -1,6 +1,6 @@
 # the name of your lambda function
 # this value will be used to lookup up an existing lambda function
-name: my-lambda
+name: lambda-researchareas
 architecture: arm64
 rolename: lambda-role
 runtime: provided.al2023
@@ -18,7 +18,7 @@ endpoint:
     # the name of the REST API resource your function is responsible for
     # this name will be included in the api as a path value
     # ie. https://api.insightengine.com/v1/poc
-    resource: mylambda
+    resource: researchareas
     # a list of REST methods (GET, POST, PUT, DELETE...) supported by your function
     methods:
       - name: GET
